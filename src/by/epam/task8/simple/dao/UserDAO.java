@@ -13,9 +13,6 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by Aspire on 24.04.2016.
- */
 public class UserDAO {
     private static final Logger LOGGER = LogManager.getRootLogger();
 
