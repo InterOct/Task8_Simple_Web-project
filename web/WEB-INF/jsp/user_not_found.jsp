@@ -14,6 +14,6 @@
     <fmt:message bundle="${loc}" key="local.usernotfound.message" var="message"/>
 </head>
 <body>
-<h1><c:out value="${message}"/>, <c:out value="${sessionScope.login}"/>!</h1>
+<h1><c:out value="${message}"/></h1>
 </body>
 </html>

@@ -7,6 +7,7 @@ import by.epam.task8.simple.dao.resources.DBResourceManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.ejb.Local;
 import java.sql.*;
 import java.util.Locale;
 import java.util.Map;
@@ -50,7 +51,6 @@ public final class ConnectionPool {
     }
 
     public  void initPoolData() throws ConnectionPoolException {
-        Locale.setDefault(Locale.ENGLISH);
         try {
             Class.forName(driverName);
             givenAwayConQueue = new ArrayBlockingQueue<>(poolSize);

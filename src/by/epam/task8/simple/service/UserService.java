@@ -11,7 +11,7 @@ public final class UserService {
 
     public final static User checkLogin(String login, String password) throws ServiceException {
         if (!Validator.loginValidator(login, password)) {
-            throw new ServiceException("Invalid login or password");
+            return null;
         }
 
         UserDAO userDAO = new UserDAO();

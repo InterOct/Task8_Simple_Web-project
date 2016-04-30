@@ -14,6 +14,7 @@
     <fmt:message bundle="${loc}" key="local.message" var="message"/>
 </head>
 <body>
-<h1><c:out value="${message}"/>, <c:out value="${sessionScope.login}"/>!</h1>
+<jsp:useBean id="user" class="by.epam.task8.simple.entity.User" scope="session"/>
+<h1><c:out value="${message}"/>, <jsp:getProperty name="user" property="fistName"/>!</h1>
 </body>
 </html>

@@ -24,8 +24,9 @@ public class Controller extends HttpServlet {
     public void init() throws ServletException {
         try {
             ConnectionPool.getInstance().initPoolData();
-        } catch (ConnectionPoolException e) {
+        } catch (Exception e) {
             LOGGER.error("Error initializing connection pool",e);
+            throw new RuntimeException(e);
         }
         
         super.init();
@@ -60,17 +61,17 @@ public class Controller extends HttpServlet {
             commandName = request.getParameter(COMMAND_NAME);
             command = commandHelper.getCommand(commandName);
             page = command.execute(request);
-        } catch (CommandException e) {
+        } catch (Throwable e) {
             LOGGER.error(e);
             page = PageName.ERROR_PAGE;
         }
-
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(page);
         if (dispatcher != null) {
             dispatcher.forward(request, response);
         } else {
-            LOGGER.info("Impossible to go to page");
+            LOGGER.error("Impossible to go to page");
+            throw new RuntimeException("Impossible to go to page");
         }
 
     }

@@ -5,23 +5,15 @@ import java.io.Serializable;
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private int ID;
     private String login;
     private String password;
+    private String fistName;
+    private String lastName;
+    private String email;
+    private Role role;
 
-    public User(int ID, String login, String password) {
-        this.ID = ID;
-        this.login = login;
-        this.password = password;
-    }
+    public User () {}
 
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
 
     public String getLogin() {
         return login;
@@ -39,25 +31,40 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-        if (ID != user.ID) return false;
-        if (login != null ? !login.equals(user.login) : user.login != null) return false;
-        return password != null ? password.equals(user.password) : user.password == null;
-
+    public String getFistName() {
+        return fistName;
     }
 
-    @Override
-    public int hashCode() {
-        int result = ID;
-        result = 31 * result + (login != null ? login.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        return result;
+    public void setFistName(String fistName) {
+        this.fistName = fistName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = Role.valueOf(role.toUpperCase());
+    }
+
+    private enum Role {
+        ADMIN,CUSTOMER
     }
 
 }

@@ -4,16 +4,20 @@
          id="WebApp_ID" version="2.5">
     <display-name>Library</display-name>
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.htm</welcome-file>
         <welcome-file>index.jsp</welcome-file>
-        <welcome-file>default.html</welcome-file>
-        <welcome-file>default.htm</welcome-file>
-        <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+
     <servlet>
-        <description></description>
         <display-name>Controller</display-name>
         <servlet-name>Controller</servlet-name>
         <servlet-class>by.epam.task8.simple.controller.Controller</servlet-class>
